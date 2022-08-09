@@ -132,6 +132,6 @@ class HocsinhController extends Controller
             Session::flash('error','xoa that bai');
         }
 
-        return redirect();
+        return redirect('hocsinh');
     }
 }

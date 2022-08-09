@@ -44,6 +44,7 @@
 			<input type="text" class="form-control" id="sodienthoai" name="sodienthoai" placeholder="Số điện thoại" maxlength="15" value="{{ $getHocSinhById[0]->sodienthoai }}" required />
 		</div>
 		<center><button type="submit" class="btn btn-primary">Lưu lại</button></center>
+		<?php echo $id; ?>
 	</form>
 </div>
 

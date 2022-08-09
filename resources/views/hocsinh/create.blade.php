@@ -43,6 +43,7 @@
 			<input type="text" class="form-control" id="sodienthoai"  name="sodienthoai" placeholder="Số điện thoại" maxlength="15" required />
 		</div>		
 		<center><button type="submit" class="btn btn-primary">Thêm</button></center>
+		@csrf
 	</form>
 </div>
 
