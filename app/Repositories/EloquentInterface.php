@@ -10,7 +10,7 @@ interface EloquentInterface
 
     public function create($request);
 
-    public function update(array $data , $id);
+    public function update($data , $id);
 
     public function delete($id);
 

@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('hocsinh.create');
 });
-Route::get('hocsinh','App\Http\Controllers\HocsinhController@index');
-Route::get('hocsinh/create','App\Http\Controllers\HocsinhController@create');
+Route::get('hocsinh','App\Http\Controllers\HSController@show');
+//Route::get('hocsinh/create','App\Http\Controllers\HSController@create');
 Route::post('hocsinh/create','App\Http\Controllers\HSController@create');
 Route::get('hocsinh/{id}/edit','App\Http\Controllers\HSController@find');
-Route::post('hocsinh/update','App\Http\Controllers\HocsinhController@update');
+Route::post('hocsinh/update','App\Http\Controllers\HSController@update');
 Route::get('hocsinh/{id}/delete','App\Http\Controllers\HocsinhController@destroy');

@@ -5,7 +5,7 @@
     use App\Repositories\EloquentRepository;
 
 
-    class StudentRepository extends EloquentRepository
+    class StudentRepository2 extends EloquentRepository
     {
         public function getModel()
         {

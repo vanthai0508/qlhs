@@ -33,19 +33,21 @@
 <div class="col-xs-4 col-xs-offset-4">
 	<center><h4>Sửa học sinh</h4></center>
 	<form action="{{ url('/hocsinh/update') }}" method="post">
-		<input type="hidden" id="_token" name="_token" value="{!! csrf_token() !!}" />
-		<input type="hidden" id="id" name="id" value="{!! $getHocSinhById[0]->id !!}" />
+		
+		<input type="hidden" id="id" name="id" value="{!! $getHocSinhById->id !!}" />
 		<div class="form-group">
 			<label for="tenhocsinh">Tên học sinh</label>
-			<input type="text" class="form-control" id="tenhocsinh" name="tenhocsinh" placeholder="Tên học sinh" maxlength="255" value="{{ $getHocSinhById[0]->tenhocsinh }}" required />
+			<input type="text" class="form-control" id="tenhocsinh" name="tenhocsinh" placeholder="Tên học sinh" maxlength="255" value="{{ $getHocSinhById->tenhocsinh }}" required />
 		</div>
 		<div class="form-group">
 			<label for="sodienthoai">Số điện thoại</label>
-			<input type="text" class="form-control" id="sodienthoai" name="sodienthoai" placeholder="Số điện thoại" maxlength="15" value="{{ $getHocSinhById[0]->sodienthoai }}" required />
+			<input type="text" class="form-control" id="sodienthoai" name="sodienthoai" placeholder="Số điện thoại" maxlength="15" value="{{ $getHocSinhById->sodienthoai }}" required />
 		</div>
 		<center><button type="submit" class="btn btn-primary">Lưu lại</button></center>
-		<?php echo $id; ?>
+		@csrf
 	</form>
+	
+	
 </div>
 
 @endsection

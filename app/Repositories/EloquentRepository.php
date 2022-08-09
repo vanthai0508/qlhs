@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Support\Facades\DB;
 
 
 abstract class EloquentRepository implements EloquentInterface
@@ -32,12 +33,12 @@ abstract class EloquentRepository implements EloquentInterface
     {
         return $this->model->create( $request->all());
     }
-    public function update(array $data, $id)
+    public function update($data, $id)
     {
         $result = $this->find($id);
         if($result)
         {
-            $result->update($data);
+            $result->update($data->all());
             return $result;
         }
         return false;
@@ -48,8 +49,9 @@ abstract class EloquentRepository implements EloquentInterface
     }
     public function find($id)
     {
-        $result=$this->model->findOrFail($id);
+        $result=$this->model->find($id);
         return $result;
     }
+    
 }
 ?>

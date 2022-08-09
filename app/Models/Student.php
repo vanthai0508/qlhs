@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Repositories\Eloquent\StudentRepository;
+ use App\Repositories\Eloquent\StudentRepository2;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
