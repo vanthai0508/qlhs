@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\Eloquent\StudentRepository2;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 use Illuminate\Cache\Repository;
 use App\Http\Requests\RegisterRequest;
@@ -27,10 +28,18 @@ class HSController extends Controller
     // {
     //     $student=$this->student->create();
     // }
+
+    public function createView()
+    {
+        return view('hocsinh.create');
+    }
     public function create(Request $request)
     {
-       $this->student->create($request);
-        return redirect('hocsinh/create');
+        if( $this->student->create($request))
+        {
+            return redirect('hocsinh/list');
+        }
+        
     }
 
     public function find($id)
@@ -38,7 +47,7 @@ class HSController extends Controller
         $studenEdit=$this->student->find($id);
         if($this->student->find($id))
         {
-            echo "hdsa";
+            echo "tim thanh cong";
         }
         else "thatbai";
         return view('hocsinh.edit')->with('getHocSinhById',$studenEdit);
@@ -49,12 +58,23 @@ class HSController extends Controller
         $create = $this->student->update($request,$id);
         if($create)
         {
-            $students=$this->student->list();
+        //    $students=$this->student->list();
        // return view('hocsinh.list',['listhocsinh'=>$students]);
-            return view('hocsinh.list')->with('listhocsinh',$students);
+            return redirect('hocsinh/list');
         }
         else
             echo "loi roi";
+    }
+
+    public function delete($id)
+    {
+        if($this->student->delete($id))
+        {
+            Session::flash('success','xoa hoc sinh thanh cong');
+        }
+        else Session::flash('error','xoa hoc sinh that bai');
+
+        return redirect('hocsinh/list');
     }
     
 }

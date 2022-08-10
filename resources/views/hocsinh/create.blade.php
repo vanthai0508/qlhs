@@ -29,7 +29,7 @@
 @endif
 
 <?php //Form thêm mới học sinh?>
-<p><a class="btn btn-primary" href="/hocsinh">Về danh sách</a></p>
+<p><a class="btn btn-primary" href="/hocsinh/list">Về danh sách</a></p>
 <div class="col-xs-4 col-xs-offset-4">
 	<center><h4>Thêm học sinh</h4></center>
 	<form action="{{ url('/hocsinh/create') }}" method="post">
