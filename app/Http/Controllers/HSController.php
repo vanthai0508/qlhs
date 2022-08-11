@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Repositories\Eloquent\StudentRepository2;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Cache\Repository;
 use App\Http\Requests\RegisterRequest;
@@ -44,7 +46,7 @@ class HSController extends Controller
 
     public function find($id)
     {
-        $studenEdit=$this->student->find($id);
+        $studenEdit = $this->student->find($id);
         if($this->student->find($id))
         {
             echo "tim thanh cong";
@@ -75,6 +77,30 @@ class HSController extends Controller
         else Session::flash('error','xoa hoc sinh that bai');
 
         return redirect('hocsinh/list');
+    }
+    public function loginView()
+    {
+        return view('hocsinh.login');
+    }
+
+    public function login(LoginRequest $request)
+    {
+        // $users=User::get();
+
+        // echo $users;
+        $username = $request->username;
+        $password = $request->password;
+        // {
+            dd(Auth::attempt(['name' => $username, 'password' => $password]));
+        // if( (Auth) ==true)
+        // {
+        //     return redirect('user/create');
+        // }
+        // else
+        // {
+        //     return redirect()->back()->with('status', 'Username hoac Password khong dung'.$request->password);
+            
+        // }
     }
     
 }
